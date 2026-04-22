@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/cost-Free_Forever-green" alt="Free">
   <img src="https://img.shields.io/badge/status-Active-brightgreen" alt="Active">
   <img src="https://img.shields.io/badge/agents-9-8b5cf6" alt="9 Agents">
@@ -354,6 +354,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
     <strong>"The greatest sign of success for a teacher is to be able to say, 'The children are now working as if I did not exist.'"</strong>
     <br>-- Maria Montessori
     <br><br>
-    GPL-3.0 -- Fork it. Deploy it. Educate the world.
+    AGPL-3.0 -- Fork it. Deploy it. Educate the world.
   </sub>
 </p>
