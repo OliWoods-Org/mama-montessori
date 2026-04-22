@@ -42,8 +42,8 @@ Many of these projects serve people in crisis:
 
 ## Questions?
 
-Open an issue or reach out via the [OliWoods Foundation](https://oliwoodsfoundation.org).
+Open an issue or reach out via the [OliWoods Foundation](https://mama.oliwoods.ai/foundation).
 
 ---
 
-*Built with [MAMA](https://mama.oliwoods.ai) · Powered by [CoFounder](https://cofounder.software) · An [OliWoods Foundation](https://oliwoodsfoundation.org) Project*
+*Built with [MAMA](https://mama.oliwoods.ai) · Powered by [CoFounder](https://cofounder.software) · An [OliWoods Foundation](https://mama.oliwoods.ai/foundation) Project*
