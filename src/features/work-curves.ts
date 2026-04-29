@@ -165,6 +165,7 @@ export function startWorkCycle(params: {
     interruptionSources: [],
     environmentalFactors: {
       timeOfDay: params.timeOfDay,
+      outdoors: false,
     },
   };
 }
@@ -183,6 +184,7 @@ export function addConcentrationSample(
     level,
     confidence,
     source,
+    metadata: {},
   };
 
   const updatedSamples = [...cycle.concentrationSamples, sample];

@@ -164,6 +164,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: ["mat-practical-life-pouring"], directAim: "Control of movement in pouring",
     indirectAim: "Independence in serving food", controlOfError: "Spilled material on tray",
     vocabulary: ["pour", "steady", "full", "empty"], extensions: ["Pouring with a funnel", "Pouring into multiple containers"],
+    standardsAlignment: [],
     sortOrder: 1,
   },
   {
@@ -173,6 +174,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: [], directAim: "Control of movement with liquid",
     indirectAim: "Independence in serving drinks", controlOfError: "Spilled water on tray",
     vocabulary: ["pour", "water", "careful", "sponge"], extensions: ["Pouring with a tea strainer", "Using a turkey baster"],
+    standardsAlignment: [],
     sortOrder: 2,
   },
   // Sensorial
@@ -183,6 +185,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: ["mat-pink-tower"], directAim: "Visual discrimination of dimension",
     indirectAim: "Preparation for mathematics (cube root)", controlOfError: "Tower unstable if out of order",
     vocabulary: ["large", "small", "larger", "smaller"], extensions: ["Build horizontally", "Build with brown stair combination"],
+    standardsAlignment: [],
     sortOrder: 1,
   },
   // Mathematics
@@ -215,6 +218,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: ["mat-sandpaper-letters"], directAim: "Association of letter symbol and sound",
     indirectAim: "Preparation for writing and reading", controlOfError: "Teacher-guided",
     vocabulary: ["sound", "letter", "trace"], extensions: ["Sandpaper letter matching game", "Letters in sand tray"],
+    standardsAlignment: [],
     sortOrder: 1,
   },
   {
@@ -224,6 +228,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: ["mat-moveable-alphabet"], directAim: "Encoding words with letter symbols",
     indirectAim: "Preparation for creative writing", controlOfError: "Teacher reads back child's word",
     vocabulary: ["word", "sound it out", "vowel", "consonant"], extensions: ["Sentence building", "Story writing"],
+    standardsAlignment: [],
     sortOrder: 2,
   },
   // Cultural
@@ -234,6 +239,7 @@ export const CURRICULUM_LESSONS: CurriculumLesson[] = [
     materials: ["mat-continent-globe"], directAim: "Identify the seven continents",
     indirectAim: "Global awareness and cultural curiosity", controlOfError: "Color coding matches continent cards",
     vocabulary: ["continent", "ocean", "globe", "earth"], extensions: ["Continent song", "Animals of each continent"],
+    standardsAlignment: [],
     sortOrder: 1,
   },
 ];

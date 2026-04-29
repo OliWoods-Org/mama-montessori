@@ -188,6 +188,7 @@ export function addPortfolioItem(params: {
     skills: params.skills,
     contentUrl: params.contentUrl,
     textContent: params.textContent,
+    metadata: {},
     isFeatured: false,
     isPublic: false,
     tags: params.tags ?? [],

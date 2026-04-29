@@ -1,0 +1,26 @@
+{
+  "name": "mama-montessori",
+  "version": "0.2.0",
+  "description": "MAMA Montessori — The World's Best Open-Source AI Education Platform",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "mama",
+    "montessori",
+    "ai",
+    "education",
+    "open-source"
+  ],
+  "license": "GPL-3.0",
+  "dependencies": {
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}

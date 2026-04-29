@@ -296,6 +296,7 @@ export function generateLessonPlan(params: {
     adaptations: {},
     assessment: "Observe child's independent work with the material over the following days",
     followUpLessons: [],
+    standardsAlignment: [],
     status: "draft",
     createdAt: now,
     updatedAt: now,

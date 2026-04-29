@@ -301,6 +301,7 @@ export function buildARLessonPlan(params: {
       durationSeconds: 60,
       voiceGuidance: "Take a look at what's in front of you. What catches your eye?",
       successCriteria: "Child verbally identifies at least one property of the material",
+      adaptationHints: {},
     },
     {
       order: 2,
@@ -310,6 +311,7 @@ export function buildARLessonPlan(params: {
       durationSeconds: 120,
       voiceGuidance: "Now try touching and moving things around. What happens?",
       successCriteria: "Child interacts with at least one manipulative",
+      adaptationHints: {},
     },
     {
       order: 3,
@@ -319,6 +321,7 @@ export function buildARLessonPlan(params: {
       durationSeconds: params.durationMinutes * 30,
       voiceGuidance: "See if you can figure out the pattern. Take your time!",
       successCriteria: "Child demonstrates understanding of the core concept",
+      adaptationHints: {},
     },
     {
       order: 4,
@@ -327,6 +330,7 @@ export function buildARLessonPlan(params: {
       durationSeconds: 60,
       voiceGuidance: "Tell me what you learned! What was your favorite part?",
       successCriteria: "Child articulates their learning in own words",
+      adaptationHints: {},
     },
   ];
 

@@ -354,10 +354,10 @@ export function runPreWritingAssessment(params: {
   const recommendations: string[] = [];
   if (!readyForLetters) {
     recommendations.push("Continue pre-writing shape practice before introducing letter formation");
-    if (skills["circle"]?.score < 50) {
+    if ((skills["circle"]?.score ?? 0) < 50) {
       recommendations.push("Practice circular movements — try finger painting spirals");
     }
-    if (skills["vertical-line"]?.score < 50) {
+    if ((skills["vertical-line"]?.score ?? 0) < 50) {
       recommendations.push("Practice drawing tall lines from top to bottom");
     }
   } else {
