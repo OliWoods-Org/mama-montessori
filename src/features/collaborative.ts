@@ -354,7 +354,7 @@ export function buildSocialSkillProfile(
     "sharing-materials", "respecting-differences", "leadership", "followership",
   ];
 
-  const skills: SocialSkillProfile["skills"] = {} as any;
+  const skills = {} as SocialSkillProfile["skills"];
   for (const skill of allSkills) {
     const count = skillCounts[skill] ?? 0;
     skills[skill] = {

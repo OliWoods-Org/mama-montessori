@@ -398,18 +398,30 @@ export function analyzeVoicePatterns(events: VoiceEvent[]): {
   };
 }
 
-// Simple string similarity for pronunciation matching
+// Levenshtein distance-based similarity for pronunciation matching
 function similarity(a: string, b: string): number {
   if (a === b) return 1;
   if (a.length === 0 || b.length === 0) return 0;
 
   const maxLen = Math.max(a.length, b.length);
-  let matches = 0;
-  const minLen = Math.min(a.length, b.length);
 
-  for (let i = 0; i < minLen; i++) {
-    if (a[i] === b[i]) matches++;
+  // Build Levenshtein distance matrix
+  const prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  const curr = new Array<number>(b.length + 1);
+
+  for (let i = 1; i <= a.length; i++) {
+    curr[0] = i;
+    for (let j = 1; j <= b.length; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      curr[j] = Math.min(
+        prev[j] + 1,       // deletion
+        curr[j - 1] + 1,   // insertion
+        prev[j - 1] + cost, // substitution
+      );
+    }
+    for (let j = 0; j <= b.length; j++) prev[j] = curr[j];
   }
 
-  return matches / maxLen;
+  const distance = prev[b.length];
+  return 1 - distance / maxLen;
 }

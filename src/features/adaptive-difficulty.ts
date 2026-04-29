@@ -234,6 +234,19 @@ export function processPerformanceSignal(
     consecutiveFailures = 0;
   }
 
+  // Update running average response time when provided
+  let { averageResponseTimeMs } = profile;
+  if (signal.responseTimeMs !== undefined) {
+    if (averageResponseTimeMs === 0) {
+      averageResponseTimeMs = signal.responseTimeMs;
+    } else {
+      // Exponential moving average
+      averageResponseTimeMs = Math.round(
+        averageResponseTimeMs * 0.7 + signal.responseTimeMs * 0.3,
+      );
+    }
+  }
+
   // Voluntary repetition is a sign of Montessori normalization — note but don't change difficulty
   if (isVoluntaryRepeat) {
     // This is GOOD — the child is choosing to repeat, a key Montessori sign of deep learning
@@ -257,6 +270,7 @@ export function processPerformanceSignal(
       currentScaffold,
       currentZone,
       successRate,
+      averageResponseTimeMs,
       totalAttempts,
       consecutiveSuccesses,
       consecutiveFailures,

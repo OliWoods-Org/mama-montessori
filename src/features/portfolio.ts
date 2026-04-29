@@ -267,9 +267,10 @@ export function takeGrowthSnapshot(params: {
   streakDays: number;
   sessionsCompleted: number;
   portfolioItemCount: number;
+  socialSkillLevel?: string;
 }): GrowthSnapshot {
   return {
-    id: `snapshot-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: `snapshot-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     childId: params.childId,
     date: new Date().toISOString().split("T")[0],
     age: params.age,
@@ -277,7 +278,7 @@ export function takeGrowthSnapshot(params: {
     totalSkillsMastered: params.totalSkillsMastered,
     activeInterests: params.activeInterests,
     recentAchievements: params.recentAchievements,
-    socialSkillLevel: "developing",
+    socialSkillLevel: params.socialSkillLevel ?? "developing",
     streakDays: params.streakDays,
     sessionsCompleted: params.sessionsCompleted,
     portfolioItemCount: params.portfolioItemCount,

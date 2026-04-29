@@ -336,7 +336,21 @@ export function computeMaterialSummary(
       ? Math.round((independentCount / materialEvents.length) * 100) : 0,
     lastUsedAt: sorted.length > 0 ? sorted[sorted.length - 1].startedAt : new Date().toISOString(),
     firstUsedAt: sorted.length > 0 ? sorted[0].startedAt : new Date().toISOString(),
-    trend: materialEvents.length <= 1 ? "new" : "stable",
+    trend: (() => {
+      if (materialEvents.length <= 1) return "new";
+      const mid = Math.floor(sorted.length / 2);
+      const firstHalf = sorted.slice(0, mid);
+      const secondHalf = sorted.slice(mid);
+      const firstAvg = firstHalf.length > 0
+        ? firstHalf.reduce((s, e) => s + concentrationMap[e.concentration], 0) / firstHalf.length
+        : 0;
+      const secondAvg = secondHalf.length > 0
+        ? secondHalf.reduce((s, e) => s + concentrationMap[e.concentration], 0) / secondHalf.length
+        : 0;
+      if (secondAvg > firstAvg + 5) return "increasing";
+      if (secondAvg < firstAvg - 5) return "decreasing";
+      return "stable";
+    })(),
     masteryEstimate,
   };
 }

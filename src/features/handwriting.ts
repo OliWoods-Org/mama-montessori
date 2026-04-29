@@ -286,8 +286,23 @@ export function analyzeTracing(params: {
       pressureConsistency,
       speed: Math.round(speed),
       smoothness: smoothnessScore,
-      sizeConsistency: 75, // Would need reference bounds for real calc
-      baselineAlignment: 80, // Would need baseline reference for real calc
+      sizeConsistency: (() => {
+        if (strokes.length < 2) return 75;
+        const heights = strokes.map((s) => {
+          const ys = s.points.map((p) => p.y);
+          return Math.max(...ys) - Math.min(...ys);
+        });
+        const mean = heights.reduce((a, b) => a + b, 0) / heights.length;
+        const cv = Math.sqrt(heights.reduce((s, h) => s + (h - mean) ** 2, 0) / heights.length) / Math.max(1, mean);
+        return Math.round(Math.max(0, Math.min(100, 100 - cv * 100)));
+      })(),
+      baselineAlignment: (() => {
+        if (allPoints.length < 2) return 80;
+        const endYs = strokes.map((s) => s.points[s.points.length - 1].y);
+        const mean = endYs.reduce((a, b) => a + b, 0) / endYs.length;
+        const std = Math.sqrt(endYs.reduce((s, y) => s + (y - mean) ** 2, 0) / endYs.length);
+        return Math.round(Math.max(0, Math.min(100, 100 - std * 2)));
+      })(),
     },
     feedback: { praise, suggestion, nextStep },
     timestamp: new Date().toISOString(),
@@ -321,7 +336,7 @@ export function runPreWritingAssessment(params: {
     strokes: Stroke[];
   }>;
 }): PreWritingAssessment {
-  const skills: PreWritingAssessment["skills"] = {} as any;
+  const skills: Partial<PreWritingAssessment["skills"]> = {};
   let totalScore = 0;
   let count = 0;
 
@@ -367,7 +382,7 @@ export function runPreWritingAssessment(params: {
 
   return {
     childId: params.childId,
-    skills,
+    skills: skills as PreWritingAssessment["skills"],
     overallReadiness,
     readyForLetters,
     recommendations,

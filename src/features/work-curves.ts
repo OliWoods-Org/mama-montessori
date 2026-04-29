@@ -175,17 +175,20 @@ export function startWorkCycle(params: {
  */
 export function addConcentrationSample(
   cycle: WorkCycle,
-  level: ConcentrationLevel,
-  source: ConcentrationSample["source"],
+  sampleOrLevel: ConcentrationSample | ConcentrationLevel,
+  source?: ConcentrationSample["source"],
   confidence: number = 0.8,
 ): WorkCycle {
-  const sample: ConcentrationSample = {
-    timestamp: new Date().toISOString(),
-    level,
-    confidence,
-    source,
-    metadata: {},
-  };
+  const sample: ConcentrationSample = typeof sampleOrLevel === "object"
+    ? sampleOrLevel
+    : {
+        timestamp: new Date().toISOString(),
+        level: sampleOrLevel,
+        confidence,
+        source: source ?? "ai-inference",
+        metadata: {},
+      };
+  const level = sample.level;
 
   const updatedSamples = [...cycle.concentrationSamples, sample];
 
@@ -331,7 +334,17 @@ export function analyzeWorkCurves(
     greatWorkFrequency: Math.round(greatWorkFrequency * 100) / 100,
     averageRepetitions: Math.round(avgReps * 10) / 10,
     interruptionSensitivity,
-    preferredWorkDomains: [],
+    preferredWorkDomains: (() => {
+      const domainCounts: Record<string, number> = {};
+      for (const cycle of childCycles) {
+        const desc = cycle.activityDescription;
+        domainCounts[desc] = (domainCounts[desc] ?? 0) + 1;
+      }
+      return Object.entries(domainCounts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([d]) => d);
+    })(),
     concentrationTrend,
     normalizationProgress,
     totalCyclesTracked: childCycles.length,
@@ -373,7 +386,10 @@ export function generateDailySummary(
     ? allSamples.reduce((s, cs) => s + concentrationMap[cs.level], 0) / allSamples.length
     : 0;
 
-  const timeDistribution: Record<string, number> = {};
+  const timeDistribution: Record<WorkCyclePhase, number> = {
+    "choosing": 0, "setting-up": 0, "initial-work": 0, "concentration": 0,
+    "false-fatigue": 0, "great-work": 0, "completion": 0, "rest": 0,
+  };
   for (const cycle of dayCycles) {
     for (const phase of cycle.phases) {
       timeDistribution[phase.phase] = (timeDistribution[phase.phase] ?? 0) +
@@ -396,7 +412,7 @@ export function generateDailySummary(
     peakConcentrationEvents: peakEvents,
     longestUninterruptedStretch: Math.round(longestStretch),
     averageConcentration: Math.round(avgConcentration),
-    timeDistribution: timeDistribution as any,
+    timeDistribution,
     bestCycleId: bestCycle?.id ?? null,
   };
 }

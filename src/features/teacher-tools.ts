@@ -317,15 +317,16 @@ export function createObservation(params: {
   concentration?: Observation["concentration"];
   independence?: Observation["independence"];
   nextSteps?: string;
+  timeOfDay?: Observation["timeOfDay"];
 }): Observation {
   return {
-    id: `obs-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+    id: `obs-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 8)}`,
     guideId: params.guideId,
     childId: params.childId,
     classroomId: params.classroomId,
     type: params.type,
     date: new Date().toISOString().split("T")[0],
-    timeOfDay: "morning-work",
+    timeOfDay: params.timeOfDay ?? "morning-work",
     material: params.material,
     domain: params.domain,
     narrative: params.narrative,

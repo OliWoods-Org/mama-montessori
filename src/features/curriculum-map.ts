@@ -292,7 +292,7 @@ export function buildCurriculumOverview(
   const currentIds = progressRecords.filter((p) => p.status === "practicing" || p.status === "progressing").map((p) => p.lessonId);
 
   const domains: CurriculumDomain[] = ["practical-life", "sensorial", "language", "mathematics", "cultural"];
-  const domainProgress: ChildCurriculumOverview["domainProgress"] = {} as any;
+  const domainProgress = {} as ChildCurriculumOverview["domainProgress"];
 
   for (const domain of domains) {
     const domainLessons = CURRICULUM_LESSONS.filter(

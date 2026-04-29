@@ -245,4 +245,5 @@ export {
   findLocalGroups,
   getTrendingTopics,
   createEvent,
+  type ModerationAction,
 } from "./parent-community";
