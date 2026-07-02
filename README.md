@@ -15,7 +15,17 @@
 
 ---
 
-> **A Montessori education costs $15,000-$30,000/year.** The methodology is proven -- students outperform traditional education on every metric: academic achievement, social development, creativity, executive function, love of learning. But access is limited to families who can afford private school tuition. **We're open-sourcing the algorithms.** Let the private schools try to compete with free.
+> **A Montessori education costs $15,000–$30,000/year — and even at that price, most schools can't implement the full methodology.** The pedagogy is proven: students outperform traditional education on every metric — academic achievement, social development, creativity, executive function, love of learning. But access is gated behind tuition that 99% of the world's families will never afford, and the schools that do exist cherry-pick the parts that are easy to staff. **This library goes deeper than most Montessori schools do.** It encodes the complete methodology — sensitive periods, three-period lessons, normalization tracking, mixed-age mentorship — as composable algorithms that run offline on a $170 Raspberry Pi. Manhattan prep school or rural village: same AI teacher. **We're open-sourcing the pedagogy. Let the private schools try to compete with free.**
+
+---
+
+## Why This Exists
+
+- **90% of children in low-income countries cannot read by age 10** (World Bank, 2022). The global education system is not underperforming — it is failing.
+- **Montessori methodology is proven but locked behind $30K/year tuition.** The science is public. The implementation has been privatized. We're reversing that.
+- **We turned the pedagogy into algorithms any developer can use.** Pure TypeScript functions with Zod schemas. No server required, no vendor lock-in, no black box.
+- **Runs offline on a $170 Raspberry Pi** — no internet, no cloud, no subscription. Pairs with [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic) for the hardware layer.
+- **A school in rural Kenya gets the same AI teacher as one in Manhattan.** That's the point.
 
 ---
 
@@ -58,6 +68,14 @@ import {
 | 13 | **teacher-tools** | Three-period lesson planning, observation templates, progress report generation |
 | 14 | **parent-community** | Community forums, local group finder (haversine), event management |
 | 15 | **offline** | Content pack management, storage estimation, offline readiness validation |
+
+## Built for Everywhere
+
+- **Offline-first architecture** — the `offline` module handles content pack management, storage estimation, and readiness validation. No internet required after initial setup.
+- **25 languages with RTL support** — Arabic, Hebrew, Urdu, and 22 more. Fallback chains ensure every child sees their language first.
+- **Pairs with [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic)** — a $170 Raspberry Pi that runs the full AI stack offline. The hardware project that makes this library physical.
+- **No internet required** — once content packs are synced, the entire system runs air-gapped.
+- **No subscription, no paywall, no data collection** — GPL-3.0 forever. Student data never leaves the device.
 
 ## Key Algorithms
 
@@ -141,10 +159,13 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 | Project | Description |
 |---------|-------------|
+| [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic) | **$170 Raspberry Pi offline AI device** — the hardware layer that runs this library in classrooms with no internet |
 | [mama-access-to-justice](https://github.com/OliWoods-Org/mama-access-to-justice) | Legal aid navigation |
 | [mama-mental-health](https://github.com/OliWoods-Org/mama-mental-health) | Crisis detection with 988 handoff |
-| [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic) | $170 offline AI health assistant |
+| [mama-water-shield](https://github.com/OliWoods-Org/mama-water-shield) | Clean water access and contamination monitoring |
 | [foundation-neuro-learn](https://github.com/OliWoods-Org/foundation-neuro-learn) | Neurodivergent learning support |
+| [foundation-ready-youth](https://github.com/OliWoods-Org/foundation-ready-youth) | Youth workforce readiness and skills training |
+| [mama-addiction-recovery](https://github.com/OliWoods-Org/mama-addiction-recovery) | Addiction recovery support and resource matching |
 
 ## License
 
