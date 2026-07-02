@@ -49,6 +49,99 @@ import {
 } from "mama-montessori";
 ```
 
+## How It Works
+
+### Student Learning Flow
+
+```mermaid
+flowchart LR
+    A[Student Activity] --> B[Performance Signal]
+    B --> C{ZPD Detection}
+    C -->|Mastered| D[Increase Difficulty]
+    C -->|Independent| E[Maintain Level]
+    C -->|ZPD| F[Optimal — Add Scaffolding]
+    C -->|Frustration| G[Reduce Difficulty]
+    D --> H[Work Curve Analysis]
+    E --> H
+    F --> H
+    G --> H
+    H -->|Flow State| I[Continue Uninterrupted]
+    H -->|False Fatigue| J[Wait — Deeper Focus Coming]
+    H -->|True Fatigue| K[Suggest Break]
+```
+
+### Montessori Classroom Model
+
+```mermaid
+flowchart TB
+    subgraph Classroom["🏫 Prepared Environment"]
+        direction TB
+        subgraph Ages["Mixed-Age Groups"]
+            E[Explorers 5-7]
+            B[Builders 7-10]
+            AR[Architects 10-14]
+            N[Navigators 14-18]
+        end
+        subgraph Agents["AI Agent Team"]
+            MC[🌟 Mama Core — Orchestrator]
+            S[🦋 Sage — Socratic Tutor]
+            M[🔨 Maker — Project Guide]
+            SC[🔭 Scout — Research Assistant]
+            NAV[🧭 Navigator — Career/Life Coach]
+        end
+        subgraph Safety["Safety Layer"]
+            CO[COPPA Guard]
+            LE[LEAP Assessment]
+        end
+    end
+    MC --> S
+    MC --> M
+    MC --> SC
+    MC --> NAV
+    MC --> CO
+    MC --> LE
+```
+
+### Module Architecture
+
+```mermaid
+graph TB
+    subgraph Core["Core Learning"]
+        AD[adaptive-difficulty]
+        WC[work-curves]
+        CM[curriculum-map]
+    end
+    subgraph Skills["Skill Modules"]
+        HW[handwriting]
+        VI[voice-interaction]
+        AR[ar-learning]
+    end
+    subgraph Social["Social & Community"]
+        CL[collaborative]
+        GM[gamification]
+        PC[parent-community]
+    end
+    subgraph Environment["Physical Environment"]
+        MP[manipulatives]
+        IOT[iot-classroom]
+        OF[offline]
+    end
+    subgraph Records["Record Keeping"]
+        PF[portfolio]
+        TT[teacher-tools]
+        I18[i18n]
+    end
+    AD --> WC
+    AD --> CM
+    CM --> HW
+    CM --> VI
+    CL --> GM
+    IOT --> WC
+    OF --> CM
+    TT --> PF
+    I18 --> VI
+```
+
 ## The 15 Modules
 
 | # | Module | What it does |
@@ -74,8 +167,65 @@ import {
 - **Offline-first architecture** — the `offline` module handles content pack management, storage estimation, and readiness validation. No internet required after initial setup.
 - **25 languages with RTL support** — Arabic, Hebrew, Urdu, and 22 more. Fallback chains ensure every child sees their language first.
 - **Pairs with [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic)** — a $170 Raspberry Pi that runs the full AI stack offline. The hardware project that makes this library physical.
-- **No internet required** — once content packs are synced, the entire system runs air-gapped.
+- **No internet required** — once content packs are synced, the entire system runs air-gapped. Pack download URLs are configurable — point them to your own CDN or local mirror.
 - **No subscription, no paywall, no data collection** — GPL-3.0 forever. Student data never leaves the device.
+
+## The Montessori Method — Why It Works
+
+This library encodes six core Montessori principles as algorithms, not just vocabulary:
+
+- **Self-directed learning** — Children choose their own work. The algorithm tracks choices, not assignments. The adaptive-difficulty engine responds to what the child selects, never prescribes.
+- **Sensitive periods** — Windows of intense developmental interest (language 0-6, order 1-3, math 4-6). The curriculum engine respects these windows and surfaces age-appropriate material automatically.
+- **Three-period lesson** — Naming, Recognition, Recall. The teacher-tools module generates these sequences automatically for any curriculum node.
+- **Normalization** — The process of developing sustained concentration through freely chosen, meaningful work. Work curves track this famous Montessori concentration arc, including false fatigue detection.
+- **Mixed-age grouping** — Older children teach younger ones; both grow. The collaborative module enforces age-gap rules and tracks mutual growth across mentor-mentee pairs.
+- **Prepared environment** — The classroom itself teaches. IoT sensors monitor CO2, noise, light, and temperature for optimal learning conditions. The environment adapts to the children, not the other way around.
+- **Control of error** — Materials designed so the child can self-correct without external grading. The adaptive engine provides feedback through the material, not through judgment.
+
+### Research Backing
+
+> Lillard, A. S. (2012). "Preschool children's development in classic Montessori, supplemented Montessori, and conventional programs." *Journal of School Psychology.* — Montessori students showed significantly higher academic achievement, social cognition, and executive function.
+
+> Lillard, A. S. & Else-Quest, N. (2006). "Evaluating Montessori Education." *Science, 313*(5795). — The landmark Milwaukee study showing Montessori 5-year-olds outperformed controls on reading, math, and social problem-solving.
+
+> Marshall, C. (2017). "Montessori education: a review of the evidence base." *npj Science of Learning.* — Meta-review confirming positive effects across academic and non-academic outcomes.
+
+---
+
+## The MAMA Classroom System
+
+This library is designed to power a classroom model with five AI agents. The agents are part of the MAMA platform (private), but the algorithms they consume are this library (open-source). Any developer can build their own agent layer on top of these modules.
+
+| Agent | Role | What It Does |
+|-------|------|-------------|
+| **Mama Core** 🌟 | Orchestrator | Holds the child's developmental profile, sets goals collaboratively, routes learning to specialists, monitors wellbeing |
+| **Sage** 🦋 | Academic Tutor | Uses the Socratic method exclusively — never gives answers, only asks questions. Covers math, reading, writing, science, history, coding |
+| **Maker** 🔨 | Project Guide | Hands-on creation, art, building, real-world applications. Bridges digital learning with physical making |
+| **Scout** 🔭 | Research Assistant | Helps children explore topics of interest, find resources, develop research skills. Feeds curiosity without directing it |
+| **Navigator** 🧭 | Career & Life Coach | For older students (Architects/Navigators phase). Specialization paths, earning pathways, real-world preparation |
+
+The agent layer consumes modules from this library — adaptive-difficulty for Sage's question calibration, work-curves for Mama Core's wellbeing monitoring, collaborative for cross-age mentorship matching, and so on. The library provides the intelligence; the agents provide the interaction.
+
+---
+
+## How We Compare
+
+| Feature | MAMA Montessori | Montessori Compass | Transparent Classroom | Edoki | KidX |
+|---------|:-:|:-:|:-:|:-:|:-:|
+| Open-source | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Free forever | ✅ | ❌ ($99/yr) | ❌ ($50/yr) | ❌ ($7.99/mo) | ❌ |
+| Adaptive difficulty (ZPD) | ✅ | ❌ | ❌ | Basic | ❌ |
+| Work cycle analytics | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Handwriting analysis | ✅ | ❌ | ❌ | ✅ | ❌ |
+| Mixed-age mentorship | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Physical material tracking | ✅ | ❌ | ❌ | ❌ | ✅ (NFC only) |
+| IoT classroom sensors | ✅ | ❌ | ❌ | ❌ | ❌ |
+| Offline / $170 Pi | ✅ | ❌ | ❌ | ❌ | ❌ |
+| 25 languages + RTL | ✅ | ❌ | ❌ | 20+ | ❌ |
+| AR learning | ✅ | ❌ | ❌ | ❌ | ❌ |
+| COPPA compliant | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+---
 
 ## Key Algorithms
 
@@ -116,7 +266,7 @@ Every module follows the same pattern:
 Zod Schemas (types) -> Constants (default data) -> Pure Functions (algorithms)
 ```
 
-- No classes, no side effects, no global state
+- No OOP classes — pure functions only. No side effects, no global state
 - Immutable data patterns (functions return new objects)
 - All types derived from Zod schemas with `z.infer`
 - Privacy-first design (no tracking IDs leak across modules)
