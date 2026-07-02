@@ -210,20 +210,48 @@ The agent layer consumes modules from this library — adaptive-difficulty for S
 
 ## How We Compare
 
+### vs. AI Education Platforms
+
+The biggest players in AI education aren't Montessori-specific. They're general-purpose AI tutors that bolt "adaptive" onto traditional pedagogy. None of them encode actual Montessori methodology.
+
+| Feature | MAMA Montessori | Khanmigo | MagicSchool AI | DreamBox | Montessorium |
+|---------|:-:|:-:|:-:|:-:|:-:|
+| **Price** | **Free forever** | $4/mo | $8-13/mo | ~$13/mo | $5-10/app |
+| **Open-source** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Montessori pedagogy** | ✅ Full | ❌ None | ❌ None | ❌ None | Partial |
+| **Socratic method** | ✅ (Sage agent) | ✅ | ❌ | ❌ | ❌ |
+| **Adaptive ZPD tracking** | ✅ | Basic | ❌ | ✅ (math only) | ❌ |
+| **Work cycle / flow state** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Mixed-age mentorship** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Ages supported** | 5-18 | 4-18 | Teacher-only | K-8 | 2-6 |
+| **Offline / $170 Pi** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **25 languages + RTL** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Student-facing AI** | ✅ | ✅ | ❌ | ✅ | ❌ |
+| **COPPA compliant** | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Data stays on device** | ✅ | ❌ (cloud) | ❌ (cloud) | ❌ (cloud) | ❌ (cloud) |
+
+**Why this matters:** Khanmigo is the closest competitor — it uses the Socratic method and adaptive difficulty. But it has zero Montessori pedagogy: no sensitive periods, no work cycles, no normalization tracking, no mixed-age grouping, no prepared environment. It's a great AI tutor. It's not Montessori.
+
+Montessorium is the only competitor with real Montessori DNA, but it's limited to ages 2-6, has no adaptive AI engine, and is closed-source iOS apps — not an algorithm library other developers can build on.
+
+**MAMA Montessori is the only platform that combines AI-powered adaptive learning with authentic Montessori pedagogy, open-source code, and offline capability.**
+
+### vs. Montessori Management Tools
+
+These tools help schools run — but they don't help children learn.
+
 | Feature | MAMA Montessori | Montessori Compass | Transparent Classroom | Edoki | KidX |
 |---------|:-:|:-:|:-:|:-:|:-:|
-| Open-source | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Free forever | ✅ | ❌ ($99/yr) | ❌ ($50/yr) | ❌ ($7.99/mo) | ❌ |
-| Adaptive difficulty (ZPD) | ✅ | ❌ | ❌ | Basic | ❌ |
-| Work cycle analytics | ✅ | ❌ | ✅ | ❌ | ❌ |
-| Handwriting analysis | ✅ | ❌ | ❌ | ✅ | ❌ |
-| Mixed-age mentorship | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Physical material tracking | ✅ | ❌ | ❌ | ❌ | ✅ (NFC only) |
-| IoT classroom sensors | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Offline / $170 Pi | ✅ | ❌ | ❌ | ❌ | ❌ |
-| 25 languages + RTL | ✅ | ❌ | ❌ | 20+ | ❌ |
-| AR learning | ✅ | ❌ | ❌ | ❌ | ❌ |
-| COPPA compliant | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Purpose** | Learning engine | School CRM | Record keeping | Learning apps | Material tracking |
+| **AI-powered** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Open-source** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **Free** | ✅ | ❌ ($99/yr) | ❌ ($50/yr) | ❌ ($7.99/mo) | ❌ |
+| **Adaptive difficulty** | ✅ | ❌ | ❌ | Basic | ❌ |
+| **Work cycle analytics** | ✅ | ❌ | ✅ | ❌ | ❌ |
+| **Handwriting analysis** | ✅ | ❌ | ❌ | ✅ | ❌ |
+| **Physical material tracking** | ✅ | ❌ | ❌ | ❌ | ✅ (NFC only) |
+| **IoT classroom sensors** | ✅ | ❌ | ❌ | ❌ | ❌ |
+| **AR learning** | ✅ | ❌ | ❌ | ❌ | ❌ |
 
 ---
 
