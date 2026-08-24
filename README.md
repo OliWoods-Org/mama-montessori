@@ -4,14 +4,30 @@
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-GPL--3.0-blue.svg" alt="License"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-AGPL--3.0-blue.svg" alt="License"></a>
   <img src="https://img.shields.io/badge/cost-Free_Forever-green" alt="Free">
-  <img src="https://img.shields.io/badge/status-Active-brightgreen" alt="Active">
+  <img src="https://img.shields.io/badge/status-Library_(usable)-brightgreen" alt="Library">
   <img src="https://img.shields.io/badge/modules-15-f59e0b" alt="15 Modules">
   <img src="https://img.shields.io/badge/tests-45_passing-10b981" alt="45 Tests">
   <a href="https://mama.oliwoods.ai"><img src="https://img.shields.io/badge/Built_with-MAMA-8b5cf6" alt="Built with MAMA"></a>
   <a href="https://mama.oliwoods.ai/foundation"><img src="https://img.shields.io/badge/OliWoods-Foundation-10b981" alt="OliWoods Foundation"></a>
 </p>
+
+---
+
+## Status / Honesty
+
+This is a **working algorithm library**, not a deployed product and not a classroom
+system. What the badges claim is verifiable in this repo: 15 feature modules, 45
+tests, all passing, clean typecheck (`npm test && npx tsc --noEmit`).
+
+What it is **not**: it has no server, no database, no UI, and no classroom
+deployment behind it. It has not been trialled with children, and no learning-outcome
+claim here has been measured — the pedagogy citations describe Montessori research,
+not results from this code. Curriculum coverage is 8 sample lessons across 3 domains;
+the schema supports more.
+
+Part of the [OliWoods Foundation](https://github.com/OliWoods-Org) free-forever set.
 
 ---
 
@@ -35,8 +51,9 @@ A **TypeScript algorithm library** implementing core Montessori education princi
 
 This is **not** a full application. There's no server, no database, no UI. It's a library of algorithms and data models designed to be imported into your own education platform.
 
-```
-npm install mama-montessori
+```bash
+# Not yet published to npm — install from the repository:
+npm install github:OliWoods-Org/mama-montessori
 ```
 
 ```typescript
@@ -168,7 +185,7 @@ graph TB
 - **25 languages with RTL support** — Arabic, Hebrew, Urdu, and 22 more. Fallback chains ensure every child sees their language first.
 - **Pairs with [mama-ai-clinic](https://github.com/OliWoods-Org/mama-ai-clinic)** — a $170 Raspberry Pi that runs the full AI stack offline. The hardware project that makes this library physical.
 - **No internet required** — once content packs are synced, the entire system runs air-gapped. Pack download URLs are configurable — point them to your own CDN or local mirror.
-- **No subscription, no paywall, no data collection** — GPL-3.0 forever. Student data never leaves the device.
+- **No subscription, no paywall, no data collection** — AGPL-3.0 forever. Student data never leaves the device.
 
 ## The Montessori Method — Why It Works
 
@@ -347,4 +364,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## License
 
-GPL-3.0. Free forever. An [OliWoods Foundation](https://github.com/OliWoods-Org) project.
+**AGPL-3.0.** Free forever. An [OliWoods Foundation](https://github.com/OliWoods-Org) project.
